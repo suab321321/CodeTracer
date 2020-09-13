@@ -4,8 +4,7 @@
 
 #include<stdlib.h>
 
-#include "node.h"
-
+typedef struct node node;
 typedef struct stack stack;
 
 struct stack{

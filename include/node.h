@@ -3,11 +3,11 @@
 
 #include<stdlib.h>
 #include<string.h>
+#include "stack.h"
 
 #define CALL_SIZE 5
 #define NAME_SIZE 400
 
-typedef struct node node;
 
 struct node{
     char name[NAME_SIZE];
@@ -19,6 +19,7 @@ struct node{
 extern node* root;
 
 void newSpan(const char *);
-void childSpan(const char*, node*);
+void childSpan(const char*);
+void closeSpan();
 
 #endif

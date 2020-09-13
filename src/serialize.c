@@ -16,5 +16,14 @@ void serialize(node* root){
 }
 
 char* getStream(){
+    FILE* ptr;
+    ptr = fopen("file.txt","w");
+    if(ptr == NULL){
+        printf("Error happened opening file\n");
+        return NULL;
+    }
+    fprintf(ptr,"%d\n",CALL_SIZE);
+    fprintf(ptr,"%s",stream);
+    fclose(ptr);
     return stream;
 }

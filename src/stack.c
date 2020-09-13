@@ -21,6 +21,7 @@ void pop(){
         return;
     stack* hld = top->prev;
     free(top);
-    hld->next = NULL;
+    if(hld)
+        hld->next = NULL;
     top=hld;
 }
