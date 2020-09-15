@@ -1,11 +1,12 @@
 const fs = require('fs');
 
-const array = fs.readFileSync("../../file.txt",'utf-8').split(' ');
-const CALL_SIZE = array.shift().split('"\"')[0];
-console.log(array);
-console.log(CALL_SIZE);
+// const array = fs.readFileSync("../../file.txt",'utf-8').split(' ');
+// const CALL_SIZE = array.shift().split('"\"')[0];
+// console.log(array);
+// console.log(CALL_SIZE);
 
-var arr = array;
+var CALL_SIZE = 0;
+var arr = [];
 var index = 0;
 
 
@@ -29,4 +30,12 @@ function recurse(){
     return obj;
 }
 
-process.send(recurse());
+process.on("message",data=>{
+    console.log(data);
+    const array = fs.readFileSync(data,'utf-8').split(' ');
+    CALL_SIZE = array.shift().split('"\"')[0];
+    arr = array;
+    process.send(recurse());
+})
+
+// process.send(recurse());
